@@ -25,7 +25,19 @@ public class TestingMain {
         int addResult = calculator1.add();
         int subtractResult = calculator1.subtract();
 
-        System.out.println("Add test: " + addResult);
-        System.out.println("Subtract test: " + subtractResult);
+        System.out.println("Add result: " + addResult);
+        System.out.println("Subtract result: " + subtractResult);
+
+        if(addResult == 14){
+            System.out.println("Add test OK");
+        } else{
+            System.out.println("Add test: ERROR");
+        }
+
+        if(subtractResult == 4){
+            System.out.println("Subtract test: OK");
+        } else{
+            System.out.println("Subtract test: ERROR");
+        }
     }
 }
