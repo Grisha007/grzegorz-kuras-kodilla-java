@@ -8,17 +8,44 @@ public class ForumStatsCalculator {
     private int usersQuantity;
     private int postsQuantity;
     private int commentsQuantity;
+    private int averagePostsOnUser;
+    private int averageCommentsOnUser;
+    private int averageCommentsOnPost;
 
     public ForumStatsCalculator(Statistics statistics){
         this.statistics = statistics;
     }
 
-    public List<String> calculateAdvStatistics(){
-        List<String> users = new ArrayList<>();
+    public void calculateAdvStatistics(){
+        usersQuantity = statistics.usersNames().size();
+        postsQuantity = statistics.postsCount();
+        commentsQuantity = statistics.commentsCount();
+        averagePostsOnUser = (postsQuantity / usersQuantity);
+        averageCommentsOnUser = (commentsQuantity / usersQuantity);
+        averageCommentsOnPost = (commentsQuantity / postsQuantity);
+    }
 
-        for(String user : statistics){
-            users.add(user);
-        }
-        return users;
+    public int getUsersQuantity(){
+        return usersQuantity;
+    }
+
+    public int getPostsQuantity(int postsQuantity){
+        return postsQuantity;
+    }
+
+    public int getCommentsQuantity(int commentsQuantity){
+        return commentsQuantity;
+    }
+
+    public int getAveragePostsOnUser(){
+        return averagePostsOnUser;
+    }
+
+    public int getAverageCommentsOnUser(){
+        return averageCommentsOnUser;
+    }
+
+    public int getAverageCommentsOnPost(){
+        return averageCommentsOnPost;
     }
 }
