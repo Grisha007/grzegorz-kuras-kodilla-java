@@ -41,6 +41,7 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle1 = new Triangle();
+        shapeCollector.addFigure(triangle1);
 
         //When
         shapeCollector.removeFigure(triangle1);
