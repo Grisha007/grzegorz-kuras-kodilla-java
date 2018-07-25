@@ -8,9 +8,9 @@ public class ForumStatsCalculator {
     private int usersQuantity;
     private int postsQuantity;
     private int commentsQuantity;
-    private int averagePostsOnUser;
-    private int averageCommentsOnUser;
-    private int averageCommentsOnPost;
+    private double averagePostsOnUser;
+    private double averageCommentsOnUser;
+    private double averageCommentsOnPost;
 
     public ForumStatsCalculator(Statistics statistics){
         this.statistics = statistics;
@@ -20,32 +20,44 @@ public class ForumStatsCalculator {
         usersQuantity = statistics.usersNames().size();
         postsQuantity = statistics.postsCount();
         commentsQuantity = statistics.commentsCount();
-        averagePostsOnUser = (postsQuantity / usersQuantity);
-        averageCommentsOnUser = (commentsQuantity / usersQuantity);
-        averageCommentsOnPost = (commentsQuantity / postsQuantity);
+        if(usersQuantity > 0) {
+            averagePostsOnUser = (postsQuantity / usersQuantity);
+        }else{
+            averagePostsOnUser = 0;
+        }
+        if(usersQuantity > 0) {
+            averageCommentsOnUser = (commentsQuantity / usersQuantity);
+        }else{
+            averageCommentsOnUser = 0;
+        }
+        if(postsQuantity > 0) {
+            averageCommentsOnPost = (commentsQuantity / postsQuantity);
+        }else{
+            averageCommentsOnPost = 0;
+        }
     }
 
     public int getUsersQuantity(){
         return usersQuantity;
     }
 
-    public int getPostsQuantity(int postsQuantity){
+    public int getPostsQuantity(){
         return postsQuantity;
     }
 
-    public int getCommentsQuantity(int commentsQuantity){
+    public int getCommentsQuantity(){
         return commentsQuantity;
     }
 
-    public int getAveragePostsOnUser(){
+    public double getAveragePostsOnUser(){
         return averagePostsOnUser;
     }
 
-    public int getAverageCommentsOnUser(){
+    public double getAverageCommentsOnUser(){
         return averageCommentsOnUser;
     }
 
-    public int getAverageCommentsOnPost(){
+    public double getAverageCommentsOnPost(){
         return averageCommentsOnPost;
     }
 }
