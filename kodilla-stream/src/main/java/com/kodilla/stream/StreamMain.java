@@ -21,8 +21,8 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Test Test Test", (text) -> System.out.println(text.toUpperCase()));
-        poemBeautifier.beautify("Test Test Test", (text) -> System.out.println("ABC " + text + " ABC"));
-        poemBeautifier.beautify("Test Test Test", (text) -> System.out.println(text.toLowerCase()));
+        poemBeautifier.beautify("Test Test Test", (text) -> text.toUpperCase());
+        poemBeautifier.beautify("Test Test Test", (text) -> "ABC " + text + " ABC");
+        poemBeautifier.beautify("Test Test Test", (text) -> text.toLowerCase());
     }
 }

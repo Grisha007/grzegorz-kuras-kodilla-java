@@ -4,6 +4,7 @@ import java.lang.String;
 
 public class PoemBeautifier {
     public void beautify(String text, PoemDecorator poemDecorator){
-        poemDecorator.decorate(text);
+        String result = poemDecorator.decorate(text);
+        System.out.println(result);
     }
 }
