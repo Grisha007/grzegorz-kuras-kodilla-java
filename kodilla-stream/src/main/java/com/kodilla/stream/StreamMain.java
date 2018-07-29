@@ -11,6 +11,8 @@ import com.kodilla.stream.person.People;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -96,12 +98,12 @@ public class StreamMain {
 
         System.out.println();
 
-        //LocalDate today = LocalDate.now();
-
         Forum forum = new Forum();
         Map<Integer, ForumUser> theResultMapOfForum = forum.getUsersList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> LocalDate.now().compareTo(forumUser.getBirthDate()) >= 20)
+                //.filter(forumUser -> LocalDate.now().compareTo(forumUser.getBirthDate()) >= 20)
+                .filter(forumUser -> Period.between(forumUser.getBirthDate(), LocalDate.now()).getYears() >= 20)
+                //.filter(forumUser -> ChronoUnit.YEARS.between(forumUser.getBirthDate(), LocalDate.now()) >= 20)
                 .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
 
