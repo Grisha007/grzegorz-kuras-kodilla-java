@@ -1,5 +1,6 @@
 package com.kodilla.stream.world;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,26 +8,13 @@ import java.util.Set;
 
 public final class Continent {
     private final String continentName;
-    private final Country country;
+    private final List<Country> listOfCountries = new ArrayList<>();
 
-    public Continent(final String continentName, final Country country){
+    public Continent(final String continentName){
         this.continentName = continentName;
-        this.country = country;
     }
 
-    public String getContinentName() {
-        return continentName;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    @Override
-    public String toString() {
-        return "Continent{" +
-                "continentName='" + continentName + '\'' +
-                ", country=" + country +
-                '}';
+    public List<Country> getListOfCountries(){
+        return listOfCountries;
     }
 }
