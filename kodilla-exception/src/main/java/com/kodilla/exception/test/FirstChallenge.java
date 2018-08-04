@@ -5,10 +5,10 @@ public class FirstChallenge {
         if(b == 0){
             try{
                 throw new ArithmeticException();
-            } catch(ArithmeticException ae){
-                System.out.println("Oh no! Something went wrong! Error: " + ae);
+            } catch(ArithmeticException e){
+                System.out.println("Oh no! Something went wrong! Error: " + e);
             } finally{
-                System.out.println("Please correct \"b\" parameter!");
+                System.out.println("Cannot divide by 0! Please correct \"b\" parameter!");
             }
         }
         return a / b;
