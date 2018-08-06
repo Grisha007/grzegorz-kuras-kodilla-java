@@ -35,7 +35,7 @@ public final class MovieStore {
 
         String moviesTitle = movies.getMovies().entrySet().stream()
                 .flatMap(e -> e.getValue().stream())
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(" ! "));
 
         System.out.println(moviesTitle);
     }
