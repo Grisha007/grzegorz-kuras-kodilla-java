@@ -1,13 +1,19 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProductOrderService {
-    private OrderDto orderDto;
+    private String serviceName;
 
-    public void process(OrderDto orderDto) {
-        System.out.println(orderDto.getOrders());
-        System.out.println("Sending orders to database");
+    public ProductOrderService(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public void orderProduct(Provider provider, Repository repository, Notifier notifier, User user, Order order) {
+        if(provider.productCheck(repository, order) == true) {
+            notifier.notify(user);
+        } else if(provider.productCheck(repository, order) == false) {
+            notifier.notify(user);
+        } else {
+            System.out.println("Error occured");
+        }
     }
 }

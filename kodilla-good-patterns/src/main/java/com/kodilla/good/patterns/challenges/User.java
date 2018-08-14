@@ -2,24 +2,18 @@ package com.kodilla.good.patterns.challenges;
 
 public class User {
     private String name;
-    private String surname;
-    private String city;
+    private String phoneNumber;
 
-    public User(String name, String surname, String city) {
+    public User(String name, String phoneNumber) {
         this.name = name;
-        this.surname = surname;
-        this.city = city;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getCity() {
-        return city;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }
