@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class FlightRunner {
     public static void main(String[] args) {
-        Flight flight1 = new Flight("Wroclaw Airport", "Budapes Airport");
+        Flight flight1 = new Flight("Wroclaw Airport", "Budapest Airport");
 
         FlightSearch flightSearcher = new FlightSearch();
 

@@ -16,14 +16,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringRunnerTestSuite {
-    @Autowired
-    private Circle shape;
+//    @Autowired
+//    private Circle shape;
     @Test
     public void testCircleLoadedIntoContainer() {
         //Given
-//        ApplicationContext context =
-//                new AnnotationConfigApplicationContext("com.kodilla.spring");
-//        Shape shape = (Shape)context.getBean("circle");
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape = (Shape)context.getBean("circle");
         //When
         String name = shape.getShapeName();
         //Then
