@@ -29,12 +29,23 @@ public class FlightsSchedule {
     }
 
     public List<Flight> searchFlightWithStopover(String departureAirport, String arrivalAirport) {
-        getFlightsSchedule().stream()
+        List<Flight> departureAirports = getFlightsSchedule().stream()
                 .filter(f -> f.getDepartureAirport().equals(departureAirport))
                 .collect(Collectors.toList());
 
-        getFlightsSchedule().stream()
+        List<Flight> arrivalAirports = getFlightsSchedule().stream()
                 .filter(f -> f.getArrivalAirport().equals(arrivalAirport))
                 .collect(Collectors.toList());
+
+        List<Flight> flights = new ArrayList<>();
+
+        for(Flight departure : departureAirports) {
+            for(Flight arrival : arrivalAirports) {
+                if(departure.getArrivalAirport().equals(arrival.getDepartureAirport()))
+                    flights.add(departure);
+                    flights.add(arrival);
+            }
+        }
+        return flights;
     }
 }

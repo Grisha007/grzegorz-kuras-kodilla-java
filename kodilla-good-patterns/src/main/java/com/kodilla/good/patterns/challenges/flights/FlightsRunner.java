@@ -5,5 +5,6 @@ public class FlightsRunner {
         FlightsSchedule flightsSchedule = new FlightsSchedule();
         flightsSchedule.searchFlightByDepartureAirport("New York");
         flightsSchedule.searchFlightByArrivalAirport("Wroclaw");
+        System.out.println(flightsSchedule.searchFlightWithStopover("Wroclaw", "Warsaw"));
     }
 }
