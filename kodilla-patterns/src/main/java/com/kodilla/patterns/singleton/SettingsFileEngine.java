@@ -5,6 +5,7 @@ public class SettingsFileEngine {
     private String fileName = "";
 
     private SettingsFileEngine() {
+
     }
 
     public static SettingsFileEngine getInstance() {

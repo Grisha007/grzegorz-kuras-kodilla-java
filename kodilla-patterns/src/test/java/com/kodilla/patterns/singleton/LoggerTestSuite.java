@@ -5,12 +5,11 @@ import org.junit.Test;
 
 public class LoggerTestSuite {
     @Test
-    public void getLastLog() {
+    public void testGetLastLog() {
         //Given
-        Logger logger1 = new Logger();
         //When
-        logger1.log("Logs from console");
-        String logs = logger1.getLastLog();
+        Logger.getInstance().log("Logs from console");
+        String logs = Logger.getInstance().getLastLog();
         //Then
         Assert.assertEquals("Logs from console", logs);
     }
