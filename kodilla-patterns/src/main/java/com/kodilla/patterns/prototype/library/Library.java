@@ -8,7 +8,7 @@ public class Library extends Prototype {
     private String name;
     private Set<Book> books = new HashSet<>();
 
-    public Library(final String name) {
+    public Library(String name) {
         this.name = name;
     }
 
