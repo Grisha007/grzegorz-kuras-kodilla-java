@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.patterns.prototype.library.LibraryTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-08-30T21:16:51" hostname="Laptop-Komputer" time="0.071">
+  <properties/>
+  <testcase name="testGetBooks" classname="com.kodilla.patterns.prototype.library.LibraryTestSuite" time="0.071"/>
+  <system-out><![CDATA[Library 1 - basic
+-----------------------
+Book: Title 2 Author 2 2003-11-15
+Book: Title 3 Author 3 2009-09-05
+
+Library 2 - shallow copy
+-----------------------
+Book: Title 2 Author 2 2003-11-15
+Book: Title 3 Author 3 2009-09-05
+
+Library 3 - deep copy
+-----------------------
+Book: Title 2 Author 2 2003-11-15
+Book: Title 1 Author 1 2015-05-23
+Book: Title 3 Author 3 2009-09-05
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
