@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.manytomany;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -10,6 +12,10 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES" +
         " WHERE LEFT (COMPANY_NAME, 3) LIKE :COMPANY_NAME",
         resultClass = Company.class
+)
+@NamedQuery(
+        name = "Company.searchCompanyByAnyFragment",
+        query = "FROM Company WHERE COMPANY_NAME LIKE CONCAT('%',:COMPANY_NAME,'%')"
 )
 @Entity
 @Table(name = "COMPANIES")
