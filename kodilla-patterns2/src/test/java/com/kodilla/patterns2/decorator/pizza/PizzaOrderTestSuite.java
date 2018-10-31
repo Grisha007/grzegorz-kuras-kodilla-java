@@ -34,6 +34,34 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
+    public void testBasicPizzaWithHotSauceGetCost() {
+        //Given
+        PizzaOrder pizzaOrder = new BasicPizzaOrder();
+        pizzaOrder = new HotSauceDecorator(pizzaOrder);
+        System.out.println(pizzaOrder.getCost());
+
+        //When
+        BigDecimal theCost = pizzaOrder.getCost();
+
+        //Then
+        assertEquals(new BigDecimal(18), theCost);
+    }
+
+    @Test
+    public void testBasicPizzaWithHotSauceGetDescription() {
+        //Given
+        PizzaOrder pizzaOrder = new BasicPizzaOrder();
+        pizzaOrder = new HotSauceDecorator(pizzaOrder);
+        System.out.println(pizzaOrder.getDescription());
+
+        //When
+        String description = pizzaOrder.getDescription();
+
+        //Then
+        assertEquals("Pizza with tomato sauce and cheese + hot sauce", description);
+    }
+
+    @Test
     public void testBasicPizzaWithAdditionalCheeseGetCost() {
         //Given
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
