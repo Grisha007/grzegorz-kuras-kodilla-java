@@ -33,7 +33,7 @@ public class SearchFacadeTestSuite {
         companyDao.save(company);
 
         //Then
-        Assert.assertEquals("Company One", companyDao.searchCompanyByAnyFragment("One"));
+        Assert.assertEquals("Company One", companyDao.searchCompanyByAnyFragment("One").get(0).getName());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class SearchFacadeTestSuite {
         employeeDao.save(employee);
 
         //Then
-        Assert.assertEquals("Kowalski", employeeDao.searchEmployeeByAnyFragment("ski"));
+        Assert.assertEquals("Kowalski", employeeDao.searchEmployeeByAnyFragment("ski").get(0).getLastname());
     }
 
 }
