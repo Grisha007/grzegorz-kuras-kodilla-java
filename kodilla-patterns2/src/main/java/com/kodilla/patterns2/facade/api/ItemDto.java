@@ -16,4 +16,9 @@ public final class ItemDto {
     public double getQuantity() {
         return quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Product ID: " + productId + " Quanitity: " + quantity + "\n";
+    }
 }
