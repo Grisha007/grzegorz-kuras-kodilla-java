@@ -16,7 +16,7 @@ public class MedianAdapter extends MedianAdaptee implements Classifier {
         for(Book book : bookSet) {
             BookSignature bookSignatureB = new BookSignature(book.getSignature());
             com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book bookB = new com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book(book.getAuthor(), book.getTitle(), book.getPublicationYear());
-            books.put(bookSignatureB, bookB);
+            books.put(bookSignatureB, bookB); //Konwertuje format A na B Step 1.
         }
         return medianPublicationYear(books);
     }
