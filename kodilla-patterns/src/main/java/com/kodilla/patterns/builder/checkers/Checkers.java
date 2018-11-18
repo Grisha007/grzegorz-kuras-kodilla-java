@@ -38,7 +38,7 @@ public class Checkers {
             return this;
         }
 
-        public CheckersBuilder Figure(String figureType, String figureColor, int x, int y) {
+        public CheckersBuilder figure(String figureType, String figureColor, int x, int y) {
             if (x > Board.MAX_INDEX || x < Board.MIN_INDEX ||
                     y > Board.MAX_INDEX || y < Board.MIN_INDEX) {
                 throw new IllegalStateException("x and y should be in range between " +
@@ -76,6 +76,6 @@ public class Checkers {
                 throw new IllegalStateException("There are no figures of both colors on the board!");
             }
             return new Checkers(board, playerOne, playerTwo);
-        };
+        }
     }
 }
