@@ -13,5 +13,6 @@ public class SudokuGameTest {
         boolean result = sudokuGame.resolveSudoku();
         System.out.println(sudokuGame.getSudokuBoard());
         assertTrue(result);
+
     }
 }

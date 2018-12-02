@@ -5,26 +5,34 @@ public class SudokuGame {
 
     public boolean resolveSudoku() {
         boolean changed = true;
-        while (changed) {
-            changed = false;
-            for (int row = 0; row < 9; row++) {
-                for (int col = 0; col < 9; col++) {
-                    if(sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
-                        removeAllFromRow(row, col);
-                        removeAllFromCol(row, col);
-                        removeAllFromBox(row, col);
+        boolean allFilled = true;
+
+        while(allFilled) {
+            while (changed) {
+                changed = false;
+                for (int row = 0; row < 9; row++) {
+                    for (int col = 0; col < 9; col++) {
+                        if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
+                            removeAllFromRow(row, col);
+                            removeAllFromCol(row, col);
+                            removeAllFromBox(row, col);
+                        }
                     }
                 }
-            }
-            //jeżeli Allowed zawiera jedna pozycję to wpisujemy ja do value, i ustawiam changed = true
-            for (int row = 0; row < 9; row++) {
-                for (int col = 0; col < 9; col++) {
-                    if(sudokuBoard.getAllowed(row, col).size() == 1) {
-                        sudokuBoard.setValue(row, col, sudokuBoard.getAllowed(row, col).get(0));
-                        changed = true;
+                //jeżeli Allowed zawiera jedna pozycję to wpisujemy ja do value, i ustawiam changed = true
+                for (int row = 0; row < 9; row++) {
+                    for (int col = 0; col < 9; col++) {
+                        if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
+                            if (sudokuBoard.getAllowed(row, col).size() == 1) {
+                                sudokuBoard.setValue(row, col, sudokuBoard.getAllowed(row, col).get(0));
+                                changed = true;
+                            }
+                        }
                     }
                 }
+                System.out.println(sudokuBoard);
             }
+            return true;
         }
         return false;
     }
@@ -46,7 +54,16 @@ public class SudokuGame {
     }
 
     private void removeAllFromBox(int row, int col) {
+        int boxY = row / 3;
+        int boxX = col / 3;
 
+        for(int deltac = 0; deltac < 3; deltac++) {
+            for(int deltar = 0; deltar < 3; deltar++) {
+                if(sudokuBoard.getAllowed(row, col).contains(sudokuBoard.getValue(boxY * 3 + deltar, boxX * 3 + deltac))) {
+                    sudokuBoard.getAllowed(row, col).remove(sudokuBoard.getValue(boxY * 3 + deltar, boxX * 3 + deltac));
+                }
+            }
+        }
     }
 
     public SudokuBoard getSudokuBoard() {
