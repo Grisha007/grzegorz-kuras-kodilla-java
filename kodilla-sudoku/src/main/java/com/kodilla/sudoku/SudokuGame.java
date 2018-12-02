@@ -7,32 +7,37 @@ public class SudokuGame {
         boolean changed = true;
         boolean allFilled = true;
 
-        while(allFilled) {
-            while (changed) {
-                changed = false;
-                for (int row = 0; row < 9; row++) {
-                    for (int col = 0; col < 9; col++) {
-                        if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
-                            removeAllFromRow(row, col);
-                            removeAllFromCol(row, col);
-                            removeAllFromBox(row, col);
-                        }
+        while (changed) {
+            changed = false;
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
+                        removeAllFromRow(row, col);
+                        removeAllFromCol(row, col);
+                        removeAllFromBox(row, col);
                     }
                 }
-                //jeżeli Allowed zawiera jedna pozycję to wpisujemy ja do value, i ustawiam changed = true
-                for (int row = 0; row < 9; row++) {
-                    for (int col = 0; col < 9; col++) {
-                        if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
-                            if (sudokuBoard.getAllowed(row, col).size() == 1) {
-                                sudokuBoard.setValue(row, col, sudokuBoard.getAllowed(row, col).get(0));
-                                changed = true;
-                            }
-                        }
-                    }
-                }
-                System.out.println(sudokuBoard);
             }
-            return true;
+
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
+                        if (sudokuBoard.getAllowed(row, col).size() == 1) {
+                            sudokuBoard.setValue(row, col, sudokuBoard.getAllowed(row, col).get(0));
+                            changed = true;
+                        }
+                    }
+                }
+            }
+            System.out.println(sudokuBoard);
+        }
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (sudokuBoard.getValue(row, col) != SudokuElement.EMPTY) {
+                    return allFilled;
+                }
+            }
         }
         return false;
     }
