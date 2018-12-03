@@ -34,12 +34,12 @@ public class SudokuGame {
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                if (sudokuBoard.getValue(row, col) != SudokuElement.EMPTY) {
-                    return allFilled;
+                if (sudokuBoard.getValue(row, col) == SudokuElement.EMPTY) {
+                    return false;
                 }
             }
         }
-        return false;
+        return allFilled;
     }
 
     private void removeAllFromRow(int row, int col) {
